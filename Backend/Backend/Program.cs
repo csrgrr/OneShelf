@@ -15,6 +15,14 @@ builder.Services.AddDbContext<DBArticlesContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ArticlesDataBase"));
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Mi_Politica", app =>
+    {
+        app.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -23,6 +31,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("Mi_Politica");
 
 app.UseHttpsRedirection();
 
