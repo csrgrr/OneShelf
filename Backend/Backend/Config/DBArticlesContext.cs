@@ -11,5 +11,6 @@ namespace Backend.Config
         }
 
         public DbSet<Article> Articles { get; set; }
+        public DbSet<Genres> Genres { get; set; }
     }
 }

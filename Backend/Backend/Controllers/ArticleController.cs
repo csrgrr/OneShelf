@@ -17,7 +17,7 @@ namespace Backend.Controllers
 
         //C
         [HttpPost("save")]
-        public async Task<ActionResult> Post(Article article)
+        public async Task<ActionResult> Post([FromBody]Article article)
         {
             _context.Add(article); //add to context
             await _context.SaveChangesAsync();
@@ -27,21 +27,27 @@ namespace Backend.Controllers
 
         //R
         [HttpGet("list")]
-        public async Task<ActionResult<List<Article>>> Get()
+        public async Task<ActionResult<List<Article>>> GetArticles()
         {
             return await _context.Articles.ToListAsync();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Article>> Show(int id)
+        public async Task<ActionResult<Article>> ShowArticleById(int id)
         {
-            var article = await _context.Articles.FindAsync(id);
-            return Ok(article);
+            var articleExist = await _context.Articles.AnyAsync(x => x.Id == id);
+
+            if (!articleExist)
+            {
+                return BadRequest($"The article with id {id} does not exist");
+            }
+
+            return await _context.Articles.Include(x=>x.Genre).FirstOrDefaultAsync(x => x.Id == id);
         }
 
 
         //U
-        [HttpPut("/update/{id}")]
+        [HttpPut("/updateArticle/{id}")]
         public async Task<ActionResult> Put(int id, Article article)
         {
             _context.Entry(article).State = EntityState.Modified;
@@ -51,7 +57,7 @@ namespace Backend.Controllers
         }
 
         //D
-        [HttpDelete("/delete/{id}")]
+        [HttpDelete("/deleteArticle/{id}")]
         public async Task<ActionResult> Delete(int id)
         {
             Article article = await _context.Articles.FindAsync(id);

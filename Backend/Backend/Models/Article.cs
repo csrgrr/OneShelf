@@ -10,7 +10,8 @@
         public int? Issue { get; set; }
         public string? Place { get; set; }
         public string? Doi { get; set;}
-        public string? Genre { get; set; }
+        public int? GenreId { get; set; }
+        public Genres Genre { get; set; }
         public string? Pdf { get; set; }
 
     }
