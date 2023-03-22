@@ -33,7 +33,7 @@ namespace Backend.Controllers
         [HttpGet("list")]
         public async Task<ActionResult<List<Genres>>> GetGenres()
         {
-            return await _context.Genres.ToListAsync();
+            return await _context.Genres.Include(x => x.Article).ToListAsync();
         }
 
         [HttpGet("{id}")]
