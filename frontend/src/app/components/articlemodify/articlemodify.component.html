@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <div class="card ms-auto me-auto w-50">
+        <div class="card-body">
+            <form (submit)="modify()">
+                <input type="text" name="authors" placeholder="Authors (separated by <<,>>)" class="form-control my2" 
+                 [(ngModel)] = "article.authors" autocomplete="off"
+                />
+                <input type="number" name="year" placeholder="Year" class="form-control my2" 
+                [(ngModel)] = "article.year" autocomplete="off"
+                />
+                <input type="text" name="title" placeholder="Title" class="form-control my2" 
+                [(ngModel)] = "article.title" autocomplete="off"
+                />
+                <input type="text" name="journal" placeholder="Journal" class="form-control my2" 
+                [(ngModel)] = "article.journal" autocomplete="off"
+                />
+                <input type="number" name="issue" placeholder="Issue" class="form-control my2" 
+                [(ngModel)] = "article.issue" autocomplete="off"
+                />
+                <input type="text" name="place" placeholder="Place" class="form-control my2" 
+                [(ngModel)] = "article.place" autocomplete="off"
+                />
+                <input type="text" name="doi" placeholder="DOI" class="form-control my2" 
+                [(ngModel)] = "article.doi" autocomplete="off"
+                />
+                <select name="form-select form-select-sm" name="genreId"  [(ngModel)] = "article.genreId">
+                    <option *ngFor="let genre of genres" [value]="genre.id">
+                        {{ genre.genre }}
+                    </option>
+                </select>
+                <input type="text" name="pdf" placeholder="PDF" class="form-control my2" 
+                [(ngModel)] = "article.pdf" autocomplete="off"
+                />
+
+                <button type="submit" class="btn btn-primary form-control">SAVE</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<p>genremodify works!</p>
+<div class="container mt-5">
+    <div class="card ms-auto me-auto w-50">
+        <div class="card-body">
+            <form>
+
+                <select name="form-select form-select-sm" name="genreId"  [(ngModel)] = "genreId">
+                    <option *ngFor="let genre of genres" [value]="genre.id">
+                        {{ genre.genre }}
+                    </option>
+                </select>
+                <a class="btn btn-primary" [routerLink]="['/modify/article/', genreId]">
+                    <i class="fa-solid fa-pencil"></i>
+                </a>
+                <a class="btn btn-warning ms-1" (click)="delete(genreId)">
+                    <i class="fa-solid fa-trash"></i>
+                </a>
+            </form>
+        </div>
+    </div>
+</div>

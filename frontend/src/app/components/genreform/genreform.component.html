@@ -1,0 +1,15 @@
+<div class="container mt-5">
+    <div class="card ms-auto me-auto w-50">
+        <div class="card-body">
+            <form (submit)="save()">
+                <input type="text" name="genre" placeholder="Genre" class="form-control my2" 
+                 [(ngModel)] = "genre" autocomplete="off"
+                />
+                <input type="text" name="color" placeholder="Color" class="form-control my2" 
+                [(ngModel)] = "color" autocomplete="off"
+                />
+                <button type="submit" class="btn btn-primary form-control">SAVE</button>
+            </form>
+        </div>
+    </div>
+</div>
