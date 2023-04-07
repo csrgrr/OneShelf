@@ -10,24 +10,24 @@ export class ArticleService {
   
   private httpHeaders:HttpHeaders = new HttpHeaders({'Context-type':'application/json'})
 
-  URL:string = "https://localhost:7064"
+  URL:string = "http://127.0.0.1:5000"
 
   constructor(private http:HttpClient) { }
 
 
   //Save Article
   saveArticle(article:Article) : Observable<Article>{
-    return this.http.post<Article>(this.URL +'/api/article/save', article, {headers: this.httpHeaders})
+    return this.http.post<Article>(this.URL +'/save-article', article, {headers: this.httpHeaders})
   }
 
   //List Articles
   listArticles() : Observable<Article>{
-    return this.http.get<Article>(this.URL+'/api/article/list')
+    return this.http.get<Article>(this.URL+'/articles')
   }
 
   //Modify - find by id
   findArticle(id:number) : Observable<Article>{
-    return this.http.get<Article>(this.URL+'/api/article/'+id)
+    return this.http.get<Article>(this.URL+'articleById/'+id)
   }
 
   //Modify - confirm
@@ -43,13 +43,13 @@ export class ArticleService {
       GenreId: article.genreId,
       Pdf: article.pdf
     }
-    return this.http.put<Article>(this.URL+'/updateArticle/'+article.id, article, {headers: this.httpHeaders , params: modifyParams})
+    return this.http.put<Article>(this.URL+'/article-update/'+article.id, article, {headers: this.httpHeaders , params: modifyParams})
   }
 
 
   //DELETE Article
   deleteArticle(id:number): Observable<Article>{
-    return this.http.delete<Article>(this.URL+'/deleteArticle/'+id)
+    return this.http.delete<Article>(this.URL+'/delete-article/'+id)
   }
 
 

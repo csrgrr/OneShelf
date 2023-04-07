@@ -9,19 +9,19 @@ import { Genre } from '../models/genre';
 export class GenreService {
   private httpHeaders:HttpHeaders = new HttpHeaders({'Context-type':'application/json'})
 
-  URL:string = "https://localhost:7064"
+  URL:string = "http://127.0.0.1:5000"
 
   constructor(private http:HttpClient) { }
 
 
   //Save Genres
   saveGenre(genre:Genre) : Observable<Genre>{
-    return this.http.post<Genre>(this.URL +'/api/genre/save', genre, {headers: this.httpHeaders})
+    return this.http.post<Genre>(this.URL +'/save-genre', genre, {headers: this.httpHeaders})
   }
 
     //List Genres
     listGenres() : Observable<Genre>{
-      return this.http.get<Genre>(this.URL+'/api/genre/list')
+      return this.http.get<Genre>(this.URL+'/genres')
     }
   
   //Modify - find by id
@@ -34,12 +34,12 @@ export class GenreService {
       Genre: genre.genre, 
       Color: genre.color
     }
-    return this.http.put<Genre>(this.URL+'/updateGenre/'+genre.id, genre, {headers: this.httpHeaders, params: modifyParams})
+    return this.http.put<Genre>(this.URL+'/update-genre/'+genre.id, genre, {headers: this.httpHeaders, params: modifyParams})
   }
 
     //DELETE Genres
     deleteGenre(id:number): Observable<Genre>{
-      return this.http.delete<Genre>(this.URL+'/deleteGenre/'+id)
+      return this.http.delete<Genre>(this.URL+'/delete-genre/'+id)
     }
 
 }
