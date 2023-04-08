@@ -1,5 +1,6 @@
 from flask_marshmallow import Marshmallow
 from marshmallow import Schema, fields
+from dao_schema.genre_schema import GenreSchema
 
 ma = Marshmallow()
 
@@ -13,7 +14,7 @@ class ArticleSchema(Schema):
     place = fields.String()
     doi = fields.String()
     genreId = fields.Integer()
-    article_genre = fields.Integer()
+    genre = fields.Nested(GenreSchema, only=["id", "genre", "color"])
     pdf = fields.String()
 
 article_schema = ArticleSchema()

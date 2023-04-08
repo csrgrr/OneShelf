@@ -11,7 +11,7 @@ def get_articles():
 
 
 # Buscar un artículo por id
-def get_article(article_id):
+def get_article_by_id(article_id):
     article = Article.query.get(article_id)
     if article:
         return article_schema.dump(article)

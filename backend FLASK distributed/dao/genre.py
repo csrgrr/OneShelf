@@ -7,6 +7,6 @@ class Genre(db.Model):
     color = db.Column(db.String(250), nullable=True)
 
     def __init__(self, genre, color):
-        self.genre = genre,
+        self.genre = genre
         self.color = color
 

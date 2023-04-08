@@ -10,9 +10,10 @@ def get_genres():
 
 
 def save_genre():
-    name = request.json['name']
+    name = request.json['genre']
+    color = request.json['color']
 
-    genre = Genre(name)
+    genre = Genre(name, color)
     db.session.add(genre)
     db.session.commit()
     return genre_schema.dump(genre)
