@@ -46,7 +46,7 @@ export class GenremodifyComponent implements OnInit {
           showConfirmButton: false,
           timer: 1000
         })
-        this.router.navigate(['modify/genre'])
+        this.router.navigate(['shelf'])
        }
     )
 

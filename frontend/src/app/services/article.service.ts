@@ -10,7 +10,7 @@ export class ArticleService {
   
   private httpHeaders:HttpHeaders = new HttpHeaders({'Context-type':'application/json'})
 
-  URL:string = "http://127.0.0.1:5000"
+  URL:string = "http://localhost:5000"
 
   constructor(private http:HttpClient) { }
 
@@ -27,7 +27,7 @@ export class ArticleService {
 
   //Modify - find by id
   findArticle(id:number) : Observable<Article>{
-    return this.http.get<Article>(this.URL+'articleById/'+id)
+    return this.http.get<Article>(this.URL+'/articles/'+id)
   }
 
   //Modify - confirm
@@ -43,7 +43,7 @@ export class ArticleService {
       GenreId: article.genreId,
       Pdf: article.pdf
     }
-    return this.http.put<Article>(this.URL+'/article-update/'+article.id, article, {headers: this.httpHeaders , params: modifyParams})
+    return this.http.put<Article>(this.URL+'/update-article/'+article.id, article, {headers: this.httpHeaders , params: modifyParams})
   }
 
 

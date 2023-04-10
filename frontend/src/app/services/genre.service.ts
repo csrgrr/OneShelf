@@ -9,7 +9,7 @@ import { Genre } from '../models/genre';
 export class GenreService {
   private httpHeaders:HttpHeaders = new HttpHeaders({'Context-type':'application/json'})
 
-  URL:string = "http://127.0.0.1:5000"
+  URL:string = "http://localhost:5000"
 
   constructor(private http:HttpClient) { }
 
@@ -26,7 +26,7 @@ export class GenreService {
   
   //Modify - find by id
   findGenre(id:number) : Observable<Genre>{
-    return this.http.get<Genre>(this.URL+'/api/genre/'+id)
+    return this.http.get<Genre>(this.URL+'/genres/'+id)
   }
   //Modify - confirm
   modifyGenre(genre:Genre) :Observable<Genre>{

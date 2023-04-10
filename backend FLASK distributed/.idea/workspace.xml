@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c6b5e7cc-9e3c-4817-b4fb-de7a002bb4b1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller_routes/controller/article_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller_routes/controller/article_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller_routes/controller/genre_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller_routes/controller/genre_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller_routes/routes/article_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller_routes/routes/article_routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller_routes/routes/genre_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller_routes/routes/genre_routes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/genre.py" beforeDir="false" afterPath="$PROJECT_DIR$/dao/genre.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao_schema/article_schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/dao_schema/article_schema.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao_schema/genre_schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/dao_schema/genre_schema.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,14 +21,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/cesar/Escritorio/Oneshelf provisional/OneShelf/backend FLASK distributed"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/cesar/Escritorio/Oneshelf provisional/OneShelf/backend FLASK distributed&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/validations" />

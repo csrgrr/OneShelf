@@ -25,7 +25,7 @@ export class ArticlemodifyComponent implements OnInit {
   loadGenres(){
     this.genreService.listGenres().subscribe(
       res=>{
-        console.log(res)
+        // console.log(res)
         this.genres = res
       }
     )
@@ -48,8 +48,10 @@ export class ArticlemodifyComponent implements OnInit {
               this.article.doi = res.doi
               this.article.genreId = res.genreId
               this.article.pdf = res.pdf
+              console.log(res)
               
             }
+            
           )
         }
       }

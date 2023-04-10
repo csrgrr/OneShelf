@@ -3,8 +3,21 @@ from controller_routes.controller.genre_controller import get_genres, save_genre
 from dao.genre import Genre
 from dao_schema.genre_schema import genre_schema
 from database.db import db
+from flask_cors import CORS
 
 genre_routes = Blueprint('genre_routes', __name__)
+CORS(genre_routes)
+
+
+# Ruta para guardar un nuevo género
+@genre_routes.route('/save-genre', methods=['POST'])
+def save_genre():
+    genre = request.json['genre']
+    color = request.json['color']
+    genreClass = Genre(genre, color)
+    db.session.add(genreClass)
+    db.session.commit()
+    return genre_schema.dump(genre)
 
 # Ruta para obtener todos los géneros
 @genre_routes.route('/genres')
