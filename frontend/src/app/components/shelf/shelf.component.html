@@ -1,99 +1,80 @@
-<style>
+<div id="contenedorSupremo">
 
-</style>
-<div class="container-fluid mt-5">
-    
-    <a class="btn btn-success" [routerLink]="['/form/article']"><i class="fa-solid fa-plus"></i> New article</a>
-    <a class="btn btn-success" [routerLink]="['/form/genre']"><i class="fa-solid fa-plus"></i> New genre</a>
-    <a class="btn btn-success" [routerLink]="['/modify/genre']"><i class="fa-solid fa-plus"></i> Modify genres</a>
+  <!-- FILTER -->
+  <button id="filter"><i class="fa-solid fa-filter fa-xl"></i></button>
+  <!----------------------->
 
 
-        <!---------------------------------------------------------------------------->
-        <div id="bookshelf" class="bookshelf">
+  <div id="searchAndShow">
 
-            <div class="book" *ngFor="let article of articles" [routerLink]="['/modify/article/', article.id]">
-                <div class="side spine">
-                    <p class="spine-title">{{ article.title }}</p>
-                    <p class="spine-author"> {{ article.authors }}</p> <!--Solo siglas de nombre y primer apellido -->
-                  </div>
-                  <div class="side top"></div>
-                  <div class="side cover"> 
-                    <p class="cover-title">{{ article.title }}</p>
-                    <p class="cover-author">{{ article.authors }}</p>
-                    <p class="cover-year">{{ article.year }}</p>
-                    <p class="cover-editorial">{{ article.journal }}</p>
-                    </div>
-    
-            </div>
-    
-            
-      
-      
+    <!-- SEARCH -->
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <button id="searchButton" class="accordion-button" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+        </button>
+        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
         </div>
-      
-        
-      
-        <script>
-          let bookshelf = document.getElementById("bookshelf");
-          let body = document.getElementById("body");
-          let currentWidthShelf = bookshelf.offsetWidth;
-          let currentWidthBody = body.offsetWidth;
-          console.log(currentWidthShelf)
-          console.log(currentWidthBody)
-      //    if (currentWidth < currentWidthBody) {
-      //    bookshelf.style.backgroundColor = "red";
-      //    console.log(body.offsetWidth)
-      //}
-      
-        </script> 
-    
-         <!---------------------------------------------------------------------------->
-
-    <table class="table mt-3 ms-auto meauto text-center table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>AUTHORS</th>
-                <th>YEAR</th>
-                <th>TITLE</th>
-                <th>JOURNAL</th>
-                <th>ISSUE</th>
-                <th>PLACE</th>
-                <th>DOI</th>
-                <th>GENREID</th>
-                <th>GENRE - genre</th>
-                <th>GENRE - color</th>
-                <th>PDF</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let article of articles">
-                <td>{{ article.id }}</td>
-                <td>{{ article.authors }}</td>
-                <td>{{ article.year }}</td>
-                <td>{{ article.title }}</td>
-                <td>{{ article.journal }}</td>
-                <td>{{ article.issue }}</td>
-                <td>{{ article.place }}</td>
-                <td>{{ article.doi }}</td>
-                <td>{{ article.genreId }}</td>
-                <td>{{ article.genre.genre }}</td>
-                <td>{{ article.genre.color }}</td>
-                <td>{{ article.pdf }}</td>
-                <td>
-                    <a class="btn btn-primary" [routerLink]="['/modify/article/', article.id]">
-                        <i class="fa-solid fa-pencil"></i>
-                    </a>
-                    <a class="btn btn-warning ms-1" (click)="delete(article.id)">
-                        <i class="fa-solid fa-trash"></i>
-                    </a>
-                </td>
-            </tr>
-
-        </tbody>
-
-    </table>
+      </div>
+    </div>
+    <!----------------------->
 
 
+
+
+    <!-- BOOKSHELF -->
+
+    <div id="shelfDisplay">
+      <div id="bookshelf" class="bookshelf">
+
+        <div class="book" *ngFor="let article of articles" [routerLink]="['/modify/article/', article.id]">
+          <div class="side spine">
+            <p class="spine-title">{{ article.title }}</p>
+            <p class="spine-author"> {{ article.authors }}</p> <!--Solo siglas de nombre y primer apellido -->
+          </div>
+          <div class="side top"></div>
+          <div class="side cover">
+            <p class="cover-title">{{ article.title }}</p>
+            <p class="cover-author">{{ article.authors }}</p>
+            <p class="cover-year">{{ article.year }}</p>
+            <p class="cover-editorial">{{ article.journal }}</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <!----------------------->
+
+
+
+  </div>
 </div>
+
+
+
+
+
+
+
+  <script>
+    let bookshelf = document.getElementById("bookshelf");
+    let body = document.getElementById("body");
+    let currentWidthShelf = bookshelf.offsetWidth;
+    let currentWidthBody = body.offsetWidth;
+    console.log(currentWidthShelf)
+    console.log(currentWidthBody)
+//    if (currentWidth < currentWidthBody) {
+//    bookshelf.style.backgroundColor = "red";
+//    console.log(body.offsetWidth)
+//}
+
+  </script>

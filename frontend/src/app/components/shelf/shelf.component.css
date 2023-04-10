@@ -1,9 +1,55 @@
+/* FLEX */
+
+#contenedorSupremo {
+  background-color: red;
+}
 
 
-body {
-    background-color: lightslategrey;
-  }
-  
+/* SEARCH */
+ 
+ i {
+  padding-left: 43%;
+  color: rgb(245, 203, 92);
+ }
+ .accordion, .accordion-item {
+  border: none;
+
+ }
+ #searchButton, #filter{
+  background-color: rgb(36, 36, 35);
+  border: none;
+ }
+
+/* FILTER */
+
+#filter {
+
+  background-color: rgb(36, 36, 35);
+  border: none;
+	/* position: fixed;
+	top: 11.6rem;
+	left: 0px;
+	width: 3em;
+	height: 100%;
+	z-index: 9999;
+	text-align: center;
+  transition: 0.3s; */
+}
+/* #filter i {
+  margin-left: -0.6em;
+} */
+
+
+
+
+#shelfDisplay {
+  background-color: #5221ad;
+  display: flex;
+  flex-direction: row;
+}
+
+/* BOOKSHELF */
+
   .bookshelf {
     width: 100%;
     margin-top: 32px;

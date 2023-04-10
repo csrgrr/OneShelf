@@ -1,0 +1,56 @@
+<div class="container-fluid mt-5">
+
+    <div id="buttons" class="container-fluid mt-5">
+        <a class="btn" [routerLink]="['/form/article']"><i class="fa-solid fa-plus"></i> New article</a>
+        <a class="btn" [routerLink]="['/form/genre']"><i class="fa-solid fa-plus"></i> New genre</a>
+        <a class="btn" [routerLink]="['/modify/genre']"><i class="fa-solid fa-plus"></i> Modify genres</a>
+    </div>
+
+    <table class="table m-auto mt-5 text-center table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>AUTHORS</th>
+                <th>YEAR</th>
+                <th>TITLE</th>
+                <th>JOURNAL</th>
+                <th>ISSUE</th>
+                <th>PLACE</th>
+                <th>DOI</th>
+                <th>GENREID</th>
+                <th>GENRE - genre</th>
+                <th>GENRE - color</th>
+                <th>PDF</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let article of articles">
+                <td>{{ article.id }}</td>
+                <td>{{ article.authors }}</td>
+                <td>{{ article.year }}</td>
+                <td>{{ article.title }}</td>
+                <td>{{ article.journal }}</td>
+                <td>{{ article.issue }}</td>
+                <td>{{ article.place }}</td>
+                <td>{{ article.doi }}</td>
+                <td>{{ article.genreId }}</td>
+                <td>{{ article.genre.genre }}</td>
+                <td>{{ article.genre.color }}</td>
+                <td>{{ article.pdf }}</td>
+                <td class="options">
+                    <a class="btn modify" [routerLink]="['/modify/article/', article.id]">
+                        <i class="fa-solid fa-pencil"></i>
+                    </a>
+                    <a class="btn delete" (click)="delete(article.id)">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+</div>

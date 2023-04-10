@@ -2,21 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { ArticleService } from 'src/app/services/article.service';
 import { Genre } from 'src/app/models/genre';
 import Swal from 'sweetalert2';
-import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 @Component({
-  selector: 'app-shelf',
-  templateUrl: './shelf.component.html',
-  styleUrls: ['./shelf.component.css']
+  selector: 'app-librarian',
+  templateUrl: './librarian.component.html',
+  styleUrls: ['./librarian.component.css']
 })
-export class ShelfComponent implements OnInit {
+export class LibrarianComponent implements OnInit {
 
   articles:any = []
-  constructor(private articleService:ArticleService) { 
-    
-  }
 
-  
+  constructor(private articleService:ArticleService) { }
 
   ngOnInit(): void {
     this.list()
@@ -30,7 +26,6 @@ export class ShelfComponent implements OnInit {
       }
     )
   }
-  
   delete(id:number){
     this.articleService.deleteArticle(id).subscribe(
       res =>{
@@ -46,6 +41,5 @@ export class ShelfComponent implements OnInit {
     )
 
   }
-
 
 }

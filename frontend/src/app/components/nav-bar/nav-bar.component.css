@@ -1,0 +1,37 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+#nav-container {
+    background-color: rgb(36, 36, 35);
+    padding: 1em 0em 1em 0em;
+}
+
+nav {
+    background-color: rgb(245, 203, 92);
+    padding: 0;
+}
+
+.navbar-brand {
+    padding-left: 2em;
+}
+
+.navbar-nav {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    color: rgb(36, 36, 35);
+    font-weight: bold;
+    
+}
+a {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+ul {
+    padding-top: 1.5em;
+}

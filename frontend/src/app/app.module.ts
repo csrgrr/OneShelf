@@ -11,11 +11,15 @@ import { GenreformComponent } from './components/genreform/genreform.component';
 import { ArticlemodifyComponent } from './components/articlemodify/articlemodify.component';
 import { GenremodifyComponent } from './components/genremodify/genremodify.component';
 import { GenremodifyconfirmComponent } from './components/genremodifyconfirm/genremodifyconfirm.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { LibrarianComponent } from './components/librarian/librarian.component';
+import { BrowseComponent } from './components/browse/browse.component';
 
 //ROUTES
 const routes: Routes = [
   {path: '', redirectTo: '/shelf', pathMatch: 'full' },
   {path: 'shelf', component: ShelfComponent},
+  {path: 'librarian', component: LibrarianComponent},
   {path: 'form/article', component: ArticleformComponent},
   {path: 'form/genre', component: GenreformComponent},
   {path: 'modify/article/:id', component: ArticlemodifyComponent},
@@ -31,7 +35,10 @@ const routes: Routes = [
     GenreformComponent,
     ArticlemodifyComponent,
     GenremodifyComponent,
-    GenremodifyconfirmComponent
+    GenremodifyconfirmComponent,
+    NavBarComponent,
+    LibrarianComponent,
+    BrowseComponent
   ],
   imports: [
     BrowserModule,
