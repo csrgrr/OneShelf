@@ -1,7 +1,37 @@
 <div id="contenedorSupremo">
 
+  
+
   <!-- FILTER -->
-  <button id="filter"><i class="fa-solid fa-filter fa-xl"></i></button>
+  <div id="filterForm">
+    <form>
+      <div class="form-group">
+        <label for="authors">Authors:</label>
+        <input type="text" class="form-control" id="authors" name="authors" [(ngModel)]="authors">
+        <label for="title">Title:</label>
+        <input type="text" class="form-control" id="title" name="title" [(ngModel)]="title">
+        <label for="year">Year:</label>
+        <input type="text" class="form-control" id="year" name="year" [(ngModel)]="year">
+        <label for="journal">Journal:</label>
+        <input type="text" class="form-control" id="journal" name="journal" [(ngModel)]="journal">
+        <label for="journal">Issue:</label>
+        <input type="text" class="form-control" id="journal" name="journal" [(ngModel)]="issue">
+        <label for="place">Place:</label>
+        <input type="text" class="form-control" id="place" name="place" [(ngModel)]="place">
+        <label for="genre">Genre:</label>
+        <input type="text" class="form-control" id="genre" name="genre" [(ngModel)]="genre">
+        <label for="doi">DOI:</label>
+        <input type="text" class="form-control" id="doi" name="doi" [(ngModel)]="doi">
+
+
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="filter()">Filter</button>
+    </form>
+    
+    <!--  <button id="filter" class="btn desplazar" (click)="hideFilter()"><i class="fa-solid fa-filter fa-lg"></i></button>-->
+    <button id="filter" class="btn desplazar" (click)="showFilter()"><i class="fa-solid fa-filter fa-lg"></i></button>
+  </div>
+
   <!----------------------->
 
 
@@ -12,15 +42,12 @@
       <div class="accordion-item">
         <button id="searchButton" class="accordion-button" type="button" data-bs-toggle="collapse"
           data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+          <i class="fa-solid fa-magnifying-glass fa-lg"></i>
         </button>
         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
           data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+          <div class="accordion-body ">
+              <input class="form-control "  placeholder="Search" aria-label="Search" [(ngModel)]="search" (keyup)="inputWrite()">
           </div>
         </div>
       </div>
@@ -31,14 +58,14 @@
 
 
     <!-- BOOKSHELF -->
-
     <div id="shelfDisplay">
       <div id="bookshelf" class="bookshelf">
 
-        <div class="book" *ngFor="let article of articles" [routerLink]="['/modify/article/', article.id]">
+        <!-- <div class="book" *ngFor="let article of articles" [routerLink]="['/modify/article/', article.id]"> -->
+        <div class="book" *ngFor="let article of articles" (click)="details(article.id)">
           <div class="side spine">
             <p class="spine-title">{{ article.title }}</p>
-            <p class="spine-author"> {{ article.authors }}</p> <!--Solo siglas de nombre y primer apellido -->
+            <p class="spine-author"> {{ article.authors }}</p> 
           </div>
           <div class="side top"></div>
           <div class="side cover">
@@ -52,6 +79,9 @@
 
       </div>
     </div>
+
+
+
     <!----------------------->
 
 
@@ -65,16 +95,4 @@
 
 
 
-  <script>
-    let bookshelf = document.getElementById("bookshelf");
-    let body = document.getElementById("body");
-    let currentWidthShelf = bookshelf.offsetWidth;
-    let currentWidthBody = body.offsetWidth;
-    console.log(currentWidthShelf)
-    console.log(currentWidthBody)
-//    if (currentWidth < currentWidthBody) {
-//    bookshelf.style.backgroundColor = "red";
-//    console.log(body.offsetWidth)
-//}
-
-  </script>
+  <script type="module" src="script.js"></script>

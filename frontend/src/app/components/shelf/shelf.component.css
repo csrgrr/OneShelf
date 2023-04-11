@@ -1,14 +1,21 @@
 /* FLEX */
 
 #contenedorSupremo {
-  background-color: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 50vw;
 }
 
+#searchAndShow{
+  width: 100%;
+  height: 100%;
+}
 
 /* SEARCH */
  
  i {
-  padding-left: 43%;
+  padding-left: 47%;
   color: rgb(245, 203, 92);
  }
  .accordion, .accordion-item {
@@ -19,6 +26,14 @@
   background-color: rgb(36, 36, 35);
   border: none;
  }
+ #searchButton:hover{
+  background-color: rgb(245, 203, 92);
+ }
+ #searchButton:hover i{
+  color:  rgb(36, 36, 35);
+ }
+
+ 
 
 /* FILTER */
 
@@ -26,27 +41,42 @@
 
   background-color: rgb(36, 36, 35);
   border: none;
-	/* position: fixed;
-	top: 11.6rem;
-	left: 0px;
-	width: 3em;
-	height: 100%;
-	z-index: 9999;
-	text-align: center;
-  transition: 0.3s; */
+  transition: 0.5s;
 }
-/* #filter i {
-  margin-left: -0.6em;
-} */
+#filter i {
+  margin-left: -0.4em;
+  padding-left: 0.2em ;
+  transition: 0.5s;
+}
+
+#filter:hover{
+  background-color: rgb(245, 203, 92);
+}
+#filter:hover i {
+  color: rgb(36, 36, 35);
+}
 
 
-
-
-#shelfDisplay {
-  background-color: #5221ad;
+#filterForm {
+  background-color: whitesmoke;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  width: 30em;
+  margin-left: -27em;
+
+
+  transition: transform 0.3s ;
 }
+
+.show{
+  transform: translateX(27em);
+    margin-right: 27em;
+}
+.hide{
+  transform: translateX(0em);
+  margin-right: 0em;
+}
+
 
 /* BOOKSHELF */
 
