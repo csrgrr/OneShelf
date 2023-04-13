@@ -33,7 +33,7 @@ def get_genre_by_id(genre_id):
     else:
         return jsonify({'message': 'Genre not found.'}), 404
 
-# Ruta para guardar un nuevo género
+# Ruta para update un género
 @genre_routes.put("/update-genre/<int:id>")
 def update_genre(id):
     genre = Genre.query.get(id)

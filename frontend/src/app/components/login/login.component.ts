@@ -32,7 +32,7 @@ export class LoginComponent {
       res => {
         console.log(res)
         sessionStorage.setItem('token', res.token)
-        this.router.navigate(['/dashboard'])
+        this.router.navigate(['/shelf'])
       }
     )
   }

@@ -19,10 +19,11 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DashboardGuard } from './guards/dashboard.guard';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { SigninComponent } from './components/signin/signin.component';
 
 //ROUTES
 const routes: Routes = [
-  {path: '', redirectTo: '/shelf', pathMatch: 'full' },
+  {path: '', redirectTo: '/login', pathMatch: 'full' },
   {path: 'shelf', component: ShelfComponent},
   {path: 'librarian', component: LibrarianComponent},
   {path: 'form/article', component: ArticleformComponent},
@@ -32,7 +33,8 @@ const routes: Routes = [
   {path: 'modify/genre/:id', component: GenremodifyconfirmComponent},
   {path: 'shelf/details', component:ArticleDetailsComponent},
   {path: 'login', component:LoginComponent},
-  {path: 'dashboard', component:DashboardComponent, canActivate: [DashboardGuard]}
+  {path: 'dashboard', component:DashboardComponent, canActivate: [DashboardGuard]},
+  {path: 'sign-in', component:SigninComponent}
 ]
 
 @NgModule({
@@ -49,7 +51,8 @@ const routes: Routes = [
     BrowseComponent,
     ArticleDetailsComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,

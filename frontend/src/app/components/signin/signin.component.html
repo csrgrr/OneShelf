@@ -1,0 +1,8 @@
+<form (submit)="save()">
+    <input type="text" name="username" placeholder="User" [(ngModel)]="username" /> <br>
+    <input type="email" name="email" placeholder="Email" [(ngModel)]="email" /> <br>
+    <input type="password" name="password" placeholder="password" [(ngModel)]="password" /> <br>
+    <button type="submit" class="btn btn-primary form-control">Register</button>
+    <a class="btn btn-warning" [routerLink]="['/login']">Go back</a>
+</form>
+<h1>{{username}}</h1>

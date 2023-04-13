@@ -14,7 +14,7 @@
                 </a>
             </li> -->
             <li class="nav-item">
-                <a class="nav-link active" [routerLink]="['shelf']">
+                <a class="nav-link active" [routerLink]="['/shelf']">
                     <img cImg fluid src="assets/img/shelf.png" width="40" />
                     <p>Home</p>
                 </a>
@@ -26,15 +26,21 @@
                 </a>
             </li> -->
             <li class="nav-item">
-                <a class="nav-link active" [routerLink]="['shelf']">
+                <a class="nav-link active" [routerLink]="['/shelf']">
                     <img cImg fluid src="assets/img/shelf.png" width="40" />
                     <p>About us</p>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" [routerLink]="['librarian']">
+                <a class="nav-link active" [routerLink]="['/librarian']">
                     <img cImg fluid src="assets/img/librarian.png" width="30" />
                     <p>Librarian</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active">
+                    <img cImg fluid src="assets/img/user.png" width="30" />
+                    <app-dashboard></app-dashboard>
                 </a>
             </li>
         </ul>
