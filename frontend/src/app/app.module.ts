@@ -5,8 +5,8 @@ import { AppComponent } from './app.component';
 import { ArticleformComponent } from './components/articleform/articleform.component';
 import { ShelfComponent } from './components/shelf/shelf.component';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { GenreformComponent } from './components/genreform/genreform.component';
 import { ArticlemodifyComponent } from './components/articlemodify/articlemodify.component';
 import { GenremodifyComponent } from './components/genremodify/genremodify.component';
@@ -15,6 +15,10 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LibrarianComponent } from './components/librarian/librarian.component';
 import { BrowseComponent } from './components/browse/browse.component';
 import { ArticleDetailsComponent } from './components/article-details/article-details.component';
+import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DashboardGuard } from './guards/dashboard.guard';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 //ROUTES
 const routes: Routes = [
@@ -26,7 +30,9 @@ const routes: Routes = [
   {path: 'modify/article/:id', component: ArticlemodifyComponent},
   {path: 'modify/genre', component: GenremodifyComponent},
   {path: 'modify/genre/:id', component: GenremodifyconfirmComponent},
-  {path: 'shelf/details', component:ArticleDetailsComponent}
+  {path: 'shelf/details', component:ArticleDetailsComponent},
+  {path: 'login', component:LoginComponent},
+  {path: 'dashboard', component:DashboardComponent, canActivate: [DashboardGuard]}
 ]
 
 @NgModule({
@@ -41,15 +47,20 @@ const routes: Routes = [
     NavBarComponent,
     LibrarianComponent,
     BrowseComponent,
-    ArticleDetailsComponent
+    ArticleDetailsComponent,
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass:TokenInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
