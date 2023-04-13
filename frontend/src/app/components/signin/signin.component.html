@@ -1,8 +1,9 @@
-<form (submit)="save()">
-    <input type="text" name="username" placeholder="User" [(ngModel)]="username" /> <br>
-    <input type="email" name="email" placeholder="Email" [(ngModel)]="email" /> <br>
-    <input type="password" name="password" placeholder="password" [(ngModel)]="password" /> <br>
-    <button type="submit" class="btn btn-primary form-control">Register</button>
-    <a class="btn btn-warning" [routerLink]="['/login']">Go back</a>
+<div id="contenedor" class="container-fluid">
+<form class="form mt-5" (submit)="save()">
+    <input class="form-control" type="text" name="username" placeholder="User" [(ngModel)]="username" /> <br>
+    <input class="form-control" type="email" name="email" placeholder="Email" [(ngModel)]="email" /> <br>
+    <input class="form-control" type="password" name="password" placeholder="password" [(ngModel)]="password" /> <br>
+    <button type="submit" class="btn btn-primary form-control mb-2">Register</button>
+    <button class="btn btn-warning form-control m-auto" [routerLink]="['/login']">Go back</button>
 </form>
-<h1>{{username}}</h1>
+</div>

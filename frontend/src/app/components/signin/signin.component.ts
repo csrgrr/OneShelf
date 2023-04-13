@@ -41,8 +41,12 @@ export class SigninComponent implements OnInit {
         this.router.navigate(['/librarian'])
       },
       error => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'User or password already existing!'
+        })
         console.log(error);
-        alert('Error: User already existing');
       }
     );
   }

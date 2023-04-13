@@ -1,6 +1,9 @@
-<form [formGroup]="form" (submit)="getData()">
-    <input type="text" name="username" formControlName="username" placeholder="Usuario" /> <br>
-    <input type="password" name="password" formControlName="password" placeholder="Contraseña" /> <br>
-    <button type="submit">Log In</button>
-    <a class="btn btn-warning" [routerLink]="['/sign-in']">Sign In</a>
+<div id="contenedor" class="container-fluid">
+<form class="form mt-5" [formGroup]="form" (submit)="getData()">
+    <input class="form-control m-auto"  type="text" name="username" formControlName="username" placeholder="Usuario" /> <br>
+    <input class="form-control m-auto" type="password" name="password" formControlName="password" placeholder="Contraseña" /> <br>
+    <button class="btn btn-primary" type="submit">Log In</button>
+    <a class="btn btn-warning ms-5" [routerLink]="['/sign-in']">Sign In</a>
 </form>
+
+</div>

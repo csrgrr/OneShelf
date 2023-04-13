@@ -127,3 +127,4 @@ app.register_blueprint(user_routes)
 if __name__ == '__main__':
     app.config.from_object(config['dev'])
     app.run()
+
