@@ -3,6 +3,7 @@ import { ArticleService } from 'src/app/services/article.service';
 import { Genre } from 'src/app/models/genre';
 import Swal from 'sweetalert2';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
+import { ArticleDetailsComponent } from '../article-details/article-details.component';
 
 @Component({
   selector: 'app-shelf',
@@ -113,13 +114,13 @@ filter(){
       console.log(authorsSearch)
      if(
        (authors.includes(authorsSearch) || authorsSearch == '') &&
-       (title.includes(titleSearch)|| authorsSearch == '')  &&
-       (year.includes(yearSearch)|| authorsSearch == '')  &&
-       (journal.includes(journalSearch)|| authorsSearch == '')  &&
-       (issue.includes(issueSearch)|| authorsSearch == '')  &&
-       (place.includes(placeSearch)|| authorsSearch == '')  &&
-       (genre.includes(genreSearch)|| authorsSearch == '')  &&
-       (doi.includes(doiSearch)|| authorsSearch == '') 
+       (title.includes(titleSearch)|| titleSearch == '')  &&
+       (year.includes(yearSearch)|| yearSearch == '')  &&
+       (journal.includes(journalSearch)|| journalSearch == '')  &&
+       (issue.includes(issueSearch)|| issueSearch == '')  &&
+       (place.includes(placeSearch)|| placeSearch == '')  &&
+       (genre.includes(genreSearch)|| genreSearch == '')  &&
+       (doi.includes(doiSearch)|| doiSearch == '') 
       )
       this.articles.push(article)
       
@@ -140,10 +141,29 @@ filter(){
     )
   }
 
+  id:number = 0
+  article:any = '';
   details(id:number){
-    console.log(id)
-    let details = document.getElementById("details")!
-    details.innerHTML=`<app-article-details></app-article-details>`
+    // console.log(id)
+    this.id = id;
+    console.log(this.id)
+    const details = document.getElementsByTagName("app-article-details")[0]!
+    // if(this.clicked == false) {
+    //   details.classList.add("showDetails");
+    //   details.classList.remove("hideDetails"); 
+    //   this.clicked = true;
+    // } else{
+    //   details.classList.add("hideDetails");
+    //   details.classList.remove("showDetails");
+    //   this.clicked = false;
+    // }
+
+      this.articleService.findArticle(this.id).subscribe(
+        res=>{
+          this.article = res
+        }
+      )
+
   }
 
 
@@ -171,3 +191,4 @@ filter(){
 
 
 }
+

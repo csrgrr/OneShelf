@@ -43,7 +43,7 @@ export class GenremodifyconfirmComponent implements OnInit {
           showConfirmButton: false,
           timer: 1000
         })
-        this.router.navigate(['/shelf'])
+        this.router.navigate(['/librarian'])
       }
     )
   }

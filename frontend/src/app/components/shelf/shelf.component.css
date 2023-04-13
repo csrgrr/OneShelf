@@ -77,6 +77,42 @@
   margin-right: 0em;
 }
 
+#filtercontainer {
+  margin-left: 2em;
+  margin-top: 2em;
+}
+
+
+/*BOOK DETAILS*/
+/* app-article-details{
+  display: none;
+} */
+.showDetails{
+  display: block;
+ 
+}
+.hideDetails{
+  display: none;
+}
+.modal-content {
+background-color: rgba(0,0,0,0);
+border: none;
+margin-left: -15em;
+
+}
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-width: 100vw;
+  height: 100vh;
+  margin-left: -50em;
+  margin-top: 5em;
+ margin-left: -20em;
+}
+
+
 
 /* BOOKSHELF */
 
@@ -211,4 +247,7 @@
     transform: rotateX(-25deg) rotateY(-40deg) rotateZ(-15deg) translateY(50px)
       translateX(-30px);
   }
+  
+
+
   

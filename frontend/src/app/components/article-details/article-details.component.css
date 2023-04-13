@@ -1,0 +1,182 @@
+*{
+    color: white;
+
+}
+
+#details {
+    /* position: relative;
+    top:2.5em;
+    width: 100%;
+    min-width: 100vw;
+    height: 100vh; */
+    /* background-color: rgba(68, 68, 68,.5); */
+    /* display: flex;
+    justify-content: center;
+    align-content: center; */
+    
+    
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+
+}
+.bookInfo {
+    /* background-color: red;
+    width: 20em;
+    margin-left: 50em; */
+    /* position: absolute;
+    top:0;
+    right: 0; */
+    /* position: relative;
+    top:2.5em;
+    width: 100%;
+    min-width: 100vw;
+    height: 100vh; */
+    /* background-color: rgba(68, 68, 68,.5); */
+    /* display: flex;
+    justify-content: center;
+    align-content: center; */
+    
+}
+
+/* BOOKSHELF */
+
+.bookshelf {
+    width: 100%;
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+
+  .book {
+    width: 70px;
+    height: 300px;
+    margin: 5em;
+    position: relative;
+    /* margin-left: 0em;
+    margin-top: 0em; */
+    transform-style: preserve-3d;
+    transform: translateZ(0) rotateY(0);
+    transition: transform 1s;
+    z-index: 1;
+    transform: rotateX(-20deg) rotateY(-60deg) rotateZ(-15deg) translateY(50px)
+    translateX(-30px);
+    
+  }
+  .book:hover{
+    transform: rotateX(-10deg) rotateY(-70deg) rotateZ(-5deg) translateY(50px)
+    translateX(-30px);
+  }
+  
+  .side {
+    position: absolute;
+    border: 2px solid black;
+    border-radius: 3px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    transform-origin: center left;
+  }
+  
+  .spine {
+    width: 70px;
+    height: 300px;
+    transform: rotateY(0deg) translateZ(0px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aquamarine;
+  }
+  
+  .spine-title {
+    margin: 2px;
+    background-color: red;
+    height: 215px;
+    font-size: 12px;
+    color: gold;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+  
+  .spine-author {
+    position: absolute;
+    background-color: rebeccapurple;
+    max-height: 70px;
+    max-width: 60px;
+    color: goldenrod;
+    bottom: 5px;
+    left: 0; /* no idea why 20% centers it */
+    margin:3px;
+
+    font-size: small;
+    overflow-wrap: break-word;
+
+    /* PUNTOS SUSPENSIVOS */
+    /* text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; */
+  }
+  
+  .top {
+    width: 70px;
+    height: 190px;
+    background-image: linear-gradient(90deg, white 90%, gray 10%);
+    background-size: 5px 5px;
+    transform: rotateX(90deg) translateZ(95px) translateY(-95px);
+  }
+  
+
+  /* cover */
+  .cover {
+    width: 190px;
+    height: 300px;
+    top: 0px;
+    background-color: bisque;
+    background-size: contain;
+    background-repeat: round;
+    left: 70px;
+    transform: rotateY(90deg) translateZ(0);
+
+  }
+  .cover-title {
+    font-size: x-large;
+    position: relative;
+    top: 20px;
+    width: 190px;
+    height: 150px;
+    margin: 0;
+    background-color: #73AD21;
+  }
+  .cover-author {
+    margin-top: 5px;
+    position: relative;
+    top: 20px;
+    width: 190px;
+    height: 60px;
+    background-color: #ad6c21;
+
+  }
+  .cover-year {
+    margin: 0;
+    position: relative;
+    top: 10px;
+    width: 190px;
+    height: 20px;
+    background-color: #ad2193;
+
+  }
+  .cover-editorial {
+    position: relative;
+    top: 15px;
+    width: 190px;
+    height: 20px;
+    background-color: #5221ad;
+  }
+
+  
+
+
+
+  

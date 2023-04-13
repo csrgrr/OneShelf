@@ -14,6 +14,7 @@ import { GenremodifyconfirmComponent } from './components/genremodifyconfirm/gen
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LibrarianComponent } from './components/librarian/librarian.component';
 import { BrowseComponent } from './components/browse/browse.component';
+import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 
 //ROUTES
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'form/genre', component: GenreformComponent},
   {path: 'modify/article/:id', component: ArticlemodifyComponent},
   {path: 'modify/genre', component: GenremodifyComponent},
-  {path: 'modify/genre/:id', component: GenremodifyconfirmComponent}
+  {path: 'modify/genre/:id', component: GenremodifyconfirmComponent},
+  {path: 'shelf/details', component:ArticleDetailsComponent}
 ]
 
 @NgModule({
@@ -38,7 +40,8 @@ const routes: Routes = [
     GenremodifyconfirmComponent,
     NavBarComponent,
     LibrarianComponent,
-    BrowseComponent
+    BrowseComponent,
+    ArticleDetailsComponent
   ],
   imports: [
     BrowserModule,
