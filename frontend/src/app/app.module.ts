@@ -13,14 +13,13 @@ import { GenremodifyComponent } from './components/genremodify/genremodify.compo
 import { GenremodifyconfirmComponent } from './components/genremodifyconfirm/genremodifyconfirm.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LibrarianComponent } from './components/librarian/librarian.component';
-import { BrowseComponent } from './components/browse/browse.component';
 import { ArticleDetailsComponent } from './components/article-details/article-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DashboardGuard } from './guards/dashboard.guard';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { SigninComponent } from './components/signin/signin.component';
-import { UploadFormComponent } from './components/upload-form/upload-form.component';
+import { PdfComponent } from './components/pdf/pdf.component';
 
 //ROUTES
 const routes: Routes = [
@@ -36,7 +35,7 @@ const routes: Routes = [
   {path: 'login', component:LoginComponent},
   {path: 'dashboard', component:DashboardComponent, canActivate: [DashboardGuard]},
   {path: 'sign-in', component:SigninComponent},
-  {path: 'upload-form', component:UploadFormComponent}
+  {path: 'pdf', component:PdfComponent}
 ]
 
 @NgModule({
@@ -50,12 +49,11 @@ const routes: Routes = [
     GenremodifyconfirmComponent,
     NavBarComponent,
     LibrarianComponent,
-    BrowseComponent,
     ArticleDetailsComponent,
     LoginComponent,
     DashboardComponent,
     SigninComponent,
-    UploadFormComponent
+    PdfComponent
   ],
   imports: [
     BrowserModule,

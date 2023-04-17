@@ -33,6 +33,8 @@
                 [(ngModel)] = "pdf" autocomplete="off"
                 />
 
+                <input type="file" (change)="onFileSelected($event)">        
+
                 <button type="submit" class="btn btn-primary form-control">SAVE</button>
             </form>
 

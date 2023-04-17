@@ -1,0 +1,7 @@
+Prueba estas credenciales para la plataforma educativa que estoy preparando en relación
+a la formación en softwareone.
+
+username: cesarguerra
+password: q#CQj%%4qrXjFZ2k
+
+url de acceso a la plataforma: https://www.jandrocode.es/fpdual/moodle

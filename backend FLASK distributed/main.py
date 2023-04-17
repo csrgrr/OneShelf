@@ -1,5 +1,5 @@
 from pickle import FALSE
-from flask import Flask, jsonify, make_response, request
+from flask import Flask, jsonify, make_response, request, send_file
 from dao.user import User
 from envs.dev.dev_env import config, get_database_config
 from database.db import init_app
@@ -88,8 +88,8 @@ def chunks(lst, n):
 def upload():
     if request.method == 'POST':
         # Verificar si la carpeta existe, si no, crearla
-        if not os.path.exists('subidaArchivos\\archivos'):
-            os.makedirs('subidaArchivos\\archivos')
+        if not os.path.exists('pdfs'):
+            os.makedirs('pdfs')
 
         # Obtener los archivos
         files = request.files.getlist('file')
@@ -104,7 +104,7 @@ def upload():
         for i, batch in enumerate(batches):
             # Guardar los archivos en la carpeta subidaArchivos\archivos
             for file in batch:
-                file.save(os.path.join('subidaArchivos\\archivos', file.filename))
+                file.save(os.path.join('pdfs', file.filename))
 
         # Devolver una respuesta JSON
         message = f'Se subieron {total_files} archivos en {total_batches} lotes'
@@ -114,6 +114,18 @@ def upload():
     
 ##//////////////////////////////////////////////////////////////////////
 
+@app.route('/pdf')
+def pdf():
+    # Abre el archivo PDF desde el sistema de archivos
+    with open('pdfs/Osiris-Spelling-Database.pdf', 'rb') as f:
+        pdf_bytes = f.read()
+
+    # Devuelve el archivo PDF en formato de bytes
+    return send_file(pdf_bytes, attachment_filename='pdfs/archivo.pdf', as_attachment=False)
+
+
+
+##//////////////////////////////////////////////////////////////////////
 # Database config
 user = get_database_config().get('MYSQL_USER')
 host = get_database_config().get('MYSQL_HOST')
