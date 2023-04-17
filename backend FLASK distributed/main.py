@@ -22,7 +22,7 @@ app.config['JSON_AS_ASCII'] = False
 CORS(app)
 
 
-# jwt-config
+# jwt-config/////////////////////////////////////////////////////////////////////
 app.config["JWT_SECRET_KEY"] = os.getenv('SECRET_KEY')
 jwt = JWTManager(app)
 
@@ -34,28 +34,8 @@ def obtener_payload():
     return payload
 
 
-# @app.post("/token")
-# def crear_token():
-#     token_config = {
-#         'paload': obtener_payload(),
-#         'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)
-#     }
-#     token = create_access_token(token_config)
-#     return jsonify({"token": token})
 
-# @app.post("/login")
-# def login():
-#     username = request.json['username']
-#     password = request.json['password']
-    
-#     if username == 'pepe' and password == '12345':
-#         return crear_token()
-#     else:
-#         respuesta = make_response({"error-401": "error de autenticación"})
-#         respuesta.status_code = 401
-#         return respuesta
 
-##//////////////////////////////////////////////////////////////////////
 from dao.user import User
 from dao_schema.user_schema import user_schema
 from flask_jwt_extended import create_access_token
@@ -83,7 +63,7 @@ def login():
         respuesta.status_code = 401
         return respuesta
 
-##//////////////////////////////////////////////////////////////////////
+
 # Protect a route with jwt_required, which will kick out requests
 # without a valid JWT present.
 @app.route("/dashboard", methods=["GET"])
@@ -94,17 +74,45 @@ def protected():
     current_user = current_user["paload"]
     return jsonify(current_user)
 
-
-# @app.get("/dashboard")
-# @jwt_required()
-# def dashboard():
-#     users = {
-#         'username': 'pepe',
-#         'email': 'pepe@es.es'
-#     }
-#     return jsonify(users)
+##//////////////////////////////////////////////////////////////////////
 
 
+# SUBIR ARCHIVOS /////////////////////////////////////////////////////////////////////
+
+def chunks(lst, n):
+    #"""Divide una lista en lotes de tamaño n."""
+    for i in range(0, len(lst), n):
+        yield lst[i:i + n]
+
+@app.route('/upload', methods=['POST'])
+def upload():
+    if request.method == 'POST':
+        # Verificar si la carpeta existe, si no, crearla
+        if not os.path.exists('subidaArchivos\\archivos'):
+            os.makedirs('subidaArchivos\\archivos')
+
+        # Obtener los archivos
+        files = request.files.getlist('file')
+
+        #Enviar los archivos por lotes
+        batch_size = 10  # Define el tamaño máximo de un lote
+        #El número 10 en batch_size representa el tamaño máximo de un lote de archivos que se enviará en una sola petición. 
+        #En otras palabras, si el usuario selecciona 30 archivos para subir, estos archivos se dividirán en 3 lotes de 10 archivos cada uno
+        batches = list(chunks(files, batch_size))
+        total_files = len(files)
+        total_batches = len(batches)
+        for i, batch in enumerate(batches):
+            # Guardar los archivos en la carpeta subidaArchivos\archivos
+            for file in batch:
+                file.save(os.path.join('subidaArchivos\\archivos', file.filename))
+
+        # Devolver una respuesta JSON
+        message = f'Se subieron {total_files} archivos en {total_batches} lotes'
+        return jsonify({'message': message})
+    else:
+        return jsonify({'message': 'Solicitud no valida'})
+    
+##//////////////////////////////////////////////////////////////////////
 
 # Database config
 user = get_database_config().get('MYSQL_USER')

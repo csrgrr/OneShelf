@@ -10,5 +10,6 @@ export class Article{
     doi: string = ""
     genreId: number = 0
     pdf: string = ""
+    pdfFile: any = ""
 
 }

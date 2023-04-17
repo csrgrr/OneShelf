@@ -14,7 +14,10 @@ export class ArticleService {
 
   constructor(private http:HttpClient) { }
 
-
+  //Save PDF
+  savepdf(article:Article) : Observable<Article>{
+    return this.http.post<Article>(this.URL +'/upload', article.pdfFile, {headers: this.httpHeaders})
+  }
   //Save Article
   saveArticle(article:Article) : Observable<Article>{
     return this.http.post<Article>(this.URL +'/save-article', article, {headers: this.httpHeaders})
