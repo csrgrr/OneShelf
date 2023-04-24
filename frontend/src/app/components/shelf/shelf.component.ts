@@ -159,6 +159,9 @@ filter(){
 
   }
 
+  openPdf(pdf:string){
+    console.log(pdf)
+  }
 
 
   delete(id:number){

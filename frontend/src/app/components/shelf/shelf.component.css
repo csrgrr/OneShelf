@@ -97,19 +97,19 @@
 
 /*/////////////////////////*/
 .modal {
-  background-color: rgba(0, 255, 255, .5);
-  border: solid yellow 2px;
+  /* background-color: rgba(0, 255, 255, .5); */
+  /* border: solid yellow 2px; */
   width: 10em;
 }
 .modal-dialog{
-  background-color: #5221ad;
+  /* background-color: #5221ad; */
   min-width: 100%;
   min-height: 90%;
   margin: 0em;
 }
 .modal-content {
 background-color: rgba(0,0,0,0);
-border: solid red 2px;
+/* border: solid red 2px; */
 min-height: 100vh;
 display: flex;
 flex-direction: row;
@@ -127,23 +127,54 @@ app-article-details{
 }
 
 .details-aside{
-  background-color: aqua;
-  
+  background-color: rgb(245, 203, 92);;
   box-sizing: border-box;
   width: 30%;
   padding: 1em;
+  padding-top: 4em;
 
-}
-
-.details-aside div{
-  background-color: white;
 }
 .details-aside div .detail-element{
-  background-color: #ad6c21;
+  font-size: large;
+  background-color: rgb(232, 237, 223);
+  margin-top: .2em;
+  padding: 1em;
+  border-radius: 3px;
+}
+.details-aside div .button{
+  background-color: rgb(36, 36, 35);
+  color: rgb(232, 237, 223);
   margin-top: 1em;
+  width: 100%;
 }
 
+.citation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
 
+  margin-top: 1em;
+}
+.citation button{
+  width: 100%;
+  margin-top: .2em;
+}
+
+#detail-back{
+ background-color: rgba(0, 0, 0, .5);
+ position: absolute;
+ top: 1em;
+ right: 1em;
+ text-align: center;
+ width: 2.4em;
+ border-radius: 50%;
+ 
+}
+#detail-back i {
+  padding: 0;
+
+ }
 
 /*/////////////////////////*/
 .modal {

@@ -20,6 +20,7 @@ import { DashboardGuard } from './guards/dashboard.guard';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { SigninComponent } from './components/signin/signin.component';
 import { PdfComponent } from './components/pdf/pdf.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 //ROUTES
 const routes: Routes = [
@@ -35,7 +36,8 @@ const routes: Routes = [
   {path: 'login', component:LoginComponent},
   {path: 'dashboard', component:DashboardComponent, canActivate: [DashboardGuard]},
   {path: 'sign-in', component:SigninComponent},
-  {path: 'pdf', component:PdfComponent}
+  {path: 'pdf', component:PdfComponent},
+  {path: 'about-us', component:AboutUsComponent}
 ]
 
 @NgModule({
@@ -53,7 +55,8 @@ const routes: Routes = [
     LoginComponent,
     DashboardComponent,
     SigninComponent,
-    PdfComponent
+    PdfComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

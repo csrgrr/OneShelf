@@ -29,10 +29,6 @@
                         {{ genre.genre }}
                     </option>
                 </select>
-                <input type="text" name="pdf" placeholder="PDF" class="form-control my2" 
-                [(ngModel)] = "pdf" autocomplete="off"
-                />
-
                 <input type="file" (change)="onFileSelected($event)">        
 
                 <button type="submit" class="btn btn-primary form-control">SAVE</button>

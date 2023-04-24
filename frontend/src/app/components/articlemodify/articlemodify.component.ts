@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from 'src/app/models/article';
 import { ArticleService } from 'src/app/services/article.service';
 import { GenreService } from 'src/app/services/genre.service';
+import { UploadService } from 'src/app/services/upload.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,9 +15,10 @@ export class ArticlemodifyComponent implements OnInit {
 
   article:Article = new Article;
   genres:any = []
+  selectedFiles: File[] = [];
 
 
-  constructor(private articleService:ArticleService, private genreService:GenreService, private router:Router, private activatedRoute:ActivatedRoute) { }
+  constructor(private articleService:ArticleService, private genreService:GenreService, private router:Router,  private uploadService: UploadService, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.loadGenres()
@@ -48,6 +50,7 @@ export class ArticlemodifyComponent implements OnInit {
               this.article.doi = res.doi
               this.article.genreId = res.genreId
               this.article.pdf = res.pdf
+              
               console.log(res)
               
             }
@@ -58,7 +61,20 @@ export class ArticlemodifyComponent implements OnInit {
     )
   }
 
+
+  file: any = undefined;
+  // PDFS
+onFileSelected(event: any) {
+  this.selectedFiles = event.target.files;
+  const file = this.selectedFiles[0];
+  this.file = file;
+
+  this.article.pdf = file.name
   
+}
+
+
+
   modify(){
     this.articleService.modifyArticle(this.article).subscribe(
       res => {
@@ -72,6 +88,12 @@ export class ArticlemodifyComponent implements OnInit {
         this.router.navigate(['/librarian'])
       }
     )
+    this.uploadService.uploadFile(this.file).subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
+    
   }
+  
 
 }

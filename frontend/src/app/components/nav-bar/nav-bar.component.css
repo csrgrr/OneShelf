@@ -19,6 +19,7 @@ nav {
     display:flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: baseline;
     width: 100%;
     color: rgb(36, 36, 35);
     font-weight: bold;

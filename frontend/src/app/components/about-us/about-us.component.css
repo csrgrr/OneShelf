@@ -1,0 +1,23 @@
+h2{
+    margin-top: 2em;
+}
+div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white    ;
+}
+img {
+    width: 35em;
+}
+article{
+    width: 40em;
+    margin-left: 2em;
+}
+section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2em;
+}

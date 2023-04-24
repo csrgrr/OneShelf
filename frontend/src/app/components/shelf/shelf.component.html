@@ -99,19 +99,31 @@
 <div class="modal fade" id="detail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
+      <button id="detail-back" class="btn close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+
       <app-article-details [id]="id" [article]="article"></app-article-details>
+      
+      
       <div class="details-aside">
-        <div>
-          <div class="detail-element">Authors: {{article.authors}}</div>
-          <div class="detail-element">Title: {{article.title}}</div>
-          <div class="detail-element">Year: {{article.year}}</div>
-          <div class="detail-element">Journal: {{article.journal}}</div>
-          <div class="detail-element">Issue: {{article.issue}}</div>
-          <div class="detail-element">Place: {{article.place}}</div>
-          <div class="detail-element">Genre: {{genreDetail}}</div>
-          <div class="detail-element">DOI: {{article.doi}}</div> 
+        <div class="detail-elements">
+          <div class="detail-element"><strong>Authors: </strong>{{article.authors}}</div>
+          <div class="detail-element"><strong>Title: </strong>{{article.title}}</div>
+          <div class="detail-element"><strong>Year: </strong>{{article.year}}</div>
+          <div class="detail-element"><strong>Journal: </strong>{{article.journal}}</div>
+          <div class="detail-element"><strong>Issue: </strong>{{article.issue}}</div>
+          <div class="detail-element"><strong>Place: </strong>{{article.place}}</div>
+          <div class="detail-element"><strong>Genre: </strong>{{genreDetail}}</div>
+          <div class="detail-element"><strong>DOI: </strong>{{article.doi}}</div> 
+          <button class="detail-element button" (click)="openPdf(article.pdf)"  [routerLink]="['/pdf']">OPEN PDF</button> 
         </div>
-        <button>{{article.pdf}}</button>
+
+        <div class="citation">
+          <button class="btn btn-dark">APA</button>
+          <button class="btn btn-dark">MLA</button>
+          <button class="btn btn-dark">Harvard</button>
+        </div>
+
+        
       </div>
     </div>
   </div>

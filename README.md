@@ -7,25 +7,25 @@
 
 ## TO DO
 
-### Pages
-- Create page __About us__.
-- Create page __PDF__.
+### Agile
+- User stories.
+
 
 ### Functionalities
 - Pdf in forms.
+- Make page __PDF__ works.
 - Color in forms.
-- Adjust page number (back)
+- Adjust page number (back).
 - Generate citation.
-
 
 
 ### Design
 - Responsive color.
 - Responsive size.
-- Finish details page.
 - Adjust design.
 
 
 ### Extras
 - Put order in back-end.
 - Order by.
+- Responsive.

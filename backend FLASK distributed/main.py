@@ -1,4 +1,4 @@
-from pickle import FALSE
+import pickle
 from flask import Flask, jsonify, make_response, request, send_file
 from dao.user import User
 from envs.dev.dev_env import config, get_database_config
@@ -52,7 +52,7 @@ def login():
     if user:
         # Genera y devuelve un token JWT
         token_config = {
-            'paload': {'username': user.user, 'email': user.email},
+            'payload': {'username': user.user, 'email': user.email},
             'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)
         }
         token = create_access_token(token_config)
@@ -71,7 +71,7 @@ def login():
 def protected():
     # Access the identity of the current user with get_jwt_identity
     current_user = get_jwt_identity()
-    current_user = current_user["paload"]
+    current_user = current_user["payload"]
     return jsonify(current_user)
 
 ##//////////////////////////////////////////////////////////////////////
@@ -119,11 +119,13 @@ def pdf():
     # Abre el archivo PDF desde el sistema de archivos
     with open('pdfs/Osiris-Spelling-Database.pdf', 'rb') as f:
         pdf_bytes = f.read()
+    
+    pdf_path = 'C:/ALEJANDRO/OneShelf/backend FLASK distributed/pdfs/prueba.pdf'
+    return send_file(pdf_path, as_attachment=True)
 
     # Devuelve el archivo PDF en formato de bytes
-    return send_file(pdf_bytes, attachment_filename='pdfs/archivo.pdf', as_attachment=False)
-
-
+    # return send_file(pdf_bytes, attachment_filename='pdfs/archivo.pdf', as_attachment=pickle.FALSE)
+##//////////////////////////////////////////////////////////////////////
 
 ##//////////////////////////////////////////////////////////////////////
 # Database config
