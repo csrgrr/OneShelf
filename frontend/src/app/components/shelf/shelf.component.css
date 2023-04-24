@@ -68,7 +68,7 @@
   transition: transform 0.3s ;
 }
 
-.show{
+.showDet{
   transform: translateX(27em);
     margin-right: 27em;
 }
@@ -94,12 +94,58 @@
 .hideDetails{
   display: none;
 }
+
+/*/////////////////////////*/
+.modal {
+  background-color: rgba(0, 255, 255, .5);
+  border: solid yellow 2px;
+  width: 10em;
+}
+.modal-dialog{
+  background-color: #5221ad;
+  min-width: 100%;
+  min-height: 90%;
+  margin: 0em;
+}
 .modal-content {
 background-color: rgba(0,0,0,0);
-border: none;
-margin-left: -15em;
+border: solid red 2px;
+min-height: 100vh;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
 
 }
+.show{
+  transform: translateX(20em);
+  margin-right: 0;
+}
+
+app-article-details{
+  margin-top: 5%;
+  margin-left: 15%;
+}
+
+.details-aside{
+  background-color: aqua;
+  
+  box-sizing: border-box;
+  width: 30%;
+  padding: 1em;
+
+}
+
+.details-aside div{
+  background-color: white;
+}
+.details-aside div .detail-element{
+  background-color: #ad6c21;
+  margin-top: 1em;
+}
+
+
+
+/*/////////////////////////*/
 .modal {
   position: absolute;
   top: 0;

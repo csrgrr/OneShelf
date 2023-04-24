@@ -68,12 +68,12 @@ export class ShelfComponent implements OnInit {
 showFilter() {
   const filterForm = document.getElementById("filterForm")!;
   if(this.clicked == false) {
-    filterForm.classList.add("show");
+    filterForm.classList.add("showDet");
     filterForm.classList.remove("hide"); 
     this.clicked = true;
   } else{
     filterForm.classList.add("hide");
-    filterForm.classList.remove("show");
+    filterForm.classList.remove("showDet");
     this.clicked = false;
   }
 }
@@ -143,24 +143,17 @@ filter(){
 
   id:number = 0
   article:any = '';
+  genreDetail:any = ""
   details(id:number){
     // console.log(id)
     this.id = id;
     console.log(this.id)
     const details = document.getElementsByTagName("app-article-details")[0]!
-    // if(this.clicked == false) {
-    //   details.classList.add("showDetails");
-    //   details.classList.remove("hideDetails"); 
-    //   this.clicked = true;
-    // } else{
-    //   details.classList.add("hideDetails");
-    //   details.classList.remove("showDetails");
-    //   this.clicked = false;
-    // }
 
       this.articleService.findArticle(this.id).subscribe(
         res=>{
           this.article = res
+          this.genreDetail =  res.genre?.genre
         }
       )
 

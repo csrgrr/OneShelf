@@ -1,3 +1,5 @@
+import { Genre } from "./genre"
+
 export class Article{
 
     id:number = 0
@@ -9,6 +11,7 @@ export class Article{
     place: string = ""
     doi: string = ""
     genreId: number = 0
+    genre: Genre | undefined;
     pdf: string = ""
     pdfFile: any = ""
 

@@ -100,7 +100,19 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <app-article-details [id]="id" [article]="article"></app-article-details>
-
+      <div class="details-aside">
+        <div>
+          <div class="detail-element">Authors: {{article.authors}}</div>
+          <div class="detail-element">Title: {{article.title}}</div>
+          <div class="detail-element">Year: {{article.year}}</div>
+          <div class="detail-element">Journal: {{article.journal}}</div>
+          <div class="detail-element">Issue: {{article.issue}}</div>
+          <div class="detail-element">Place: {{article.place}}</div>
+          <div class="detail-element">Genre: {{genreDetail}}</div>
+          <div class="detail-element">DOI: {{article.doi}}</div> 
+        </div>
+        <button>{{article.pdf}}</button>
+      </div>
     </div>
   </div>
 </div>

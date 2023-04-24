@@ -52,9 +52,6 @@ onFileSelected(event: any) {
 }
 
 
-onUpload() {
-
-}
 
 
 
