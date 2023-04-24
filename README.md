@@ -12,7 +12,6 @@
 
 
 ### Functionalities
-- Pdf in forms.
 - Make page __PDF__ works.
 - Color in forms.
 - Adjust page number (back).
